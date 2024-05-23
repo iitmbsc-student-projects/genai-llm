@@ -1,0 +1,5 @@
+requests 
+litellm 
+chromadb
+ollama
+beautifulsoup4
