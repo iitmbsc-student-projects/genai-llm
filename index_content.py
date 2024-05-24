@@ -17,7 +17,7 @@ urls_to_index = ["https://study.iitm.ac.in/ds/academics.html","https://study.iit
 client = chromadb.PersistentClient(path=VECTOR_DB_PATH)
 
 def setup_database(fresh_start=False):
-    collection = client.get_collection(name=URL_COLLECTION_NAME)
+    collection = client.get_or_create_collection(name=URL_COLLECTION_NAME)
     if collection and fresh_start:
         client.delete_collection(name=URL_COLLECTION_NAME)
 

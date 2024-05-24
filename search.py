@@ -1,13 +1,13 @@
 import requests
 import ollama
 import chromadb
-
+import os
 
 VECTOR_DB_PATH = "./data/"
 URL_COLLECTION_NAME = "documents_index"
 MAX_TOKENS = 4096 # https://inference.readthedocs.io/en/latest/models/builtin/llm/tiny-llama.html
 MAX_EMBEDDING_RESULTS = 1
-ANSWER_MODEL = "tinyllama::latest" # use llama2 for better
+ANSWER_MODEL = "tinyllama:latest" # use llama2 for better
 EMBEDDING_MODEL = "all-minilm:latest" # use mxbai-embed-large for better results
 print("API Server:" + os.environ["OLLAMA_HOST"])
 
@@ -31,7 +31,6 @@ def search_index(query):
 
 def answer(data, query):
     output = ollama.generate(
-      host = API_HOST,
       model=ANSWER_MODEL,
       prompt=f"Using this data: {data}. Respond to this prompt: {query}"
     )
