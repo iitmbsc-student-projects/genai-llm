@@ -31,7 +31,6 @@ def search_index(query):
         collection = client.get_or_create_collection(name=URL_COLLECTION_NAME)
         results = collection.query(query_embeddings=[embedding], n_results=MAX_EMBEDDING_RESULTS)
         results = [r[0] for r in results["documents"]]
-        breakpoint()
 
         if results:
             return " ".join(results)
@@ -58,7 +57,6 @@ def answer(data, query):
     else:
         prompt = query
     try:
-        breakpoint()
         output = ollama.generate(
             model=ANSWER_MODEL,
             prompt=prompt
