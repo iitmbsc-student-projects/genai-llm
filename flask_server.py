@@ -28,11 +28,11 @@ html_template = """
 """
 
 @app.route('/', methods=['GET'])
-def index():
+def index_handler():
     return render_template_string(html_template)
 
 @app.route('/search', methods=['POST'])
-def search():
+def search_handler():
     # This function will handle the search request
     # You can fill this function with your search logic
     data = request.form
