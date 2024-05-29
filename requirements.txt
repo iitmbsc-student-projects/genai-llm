@@ -3,3 +3,5 @@ litellm
 chromadb
 ollama
 beautifulsoup4
+flask
+flask_cors

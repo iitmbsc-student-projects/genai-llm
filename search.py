@@ -70,17 +70,21 @@ def answer(data, query):
         print(response)
         print("===============================================")
         print()
+        return response
     except Exception as e:
         logger.error(f"Error generating response: {e}")
 
-def main(query):
+def main(query, use_embeddings=True):
+    global USE_EMBEDDINGS
+    USE_EMBEDDINGS = use_embeddings
+
     data = search_index(query)
-    answer(data, query)
+    return answer(data, query)
 
 if __name__ == '__main__':
-    USE_EMBEDDINGS = os.getenv("USE_EMBEDDINGS", "yes") == "yes"
+    use_embeddings = os.getenv("USE_EMBEDDINGS", "yes") == "yes"
     query = os.getenv("QUERY")
     if not query:
         query = input("Ask: ").strip()
-    main(query)
+    main(query, use_embeddings)
 
