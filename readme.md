@@ -11,8 +11,9 @@
 
 5. Install the packages in requirements.ttx
 6. Run indexing
-    `export OLLAMA_HOST='0.0.0.0';python index_content.py`
+    `OLLAMA_HOST='0.0.0.0' python index_content.py`
 7. Test searching
-    `export OLLAMA_HOST='0.0.0.0';python search.py `
+    `QUERY="what is five plus five" USE_EMBEDDINGS=yes OLLAMA_HOST='0.0.0.0' python search.py `
 8. Play around by changing the models and other parameters
+9. for a web interface - run the flask app: `FLASK_HOST=0.0.0.0 FLASK_PORT=8080 python flask_server.py` - then go to http://localhost:8080 on your browser.
 
